@@ -47,10 +47,11 @@ const Autocomplete = {
 		const countriesCount = this.$ul.children().length;
 		const key = event.key;
 		if (countriesCount === 0) return;
-		if (['ArrowUp', 'ArrowDown', 'Enter', 'Tab'].includes(key))	event.preventDefault();
+		if (['ArrowUp', 'ArrowDown', 'Enter', 'Tab', 'Escape'].includes(key))	event.preventDefault();
 		if (key === 'ArrowUp') this.selectPrev(countriesCount);
 		if (key === 'ArrowDown') this.selectNext(countriesCount);
 		if (key === 'Enter' || key === 'Tab') this.autofill();
+		if (key === 'Escape') this.reset();
 	},
 
 	selectPrev(count) {
